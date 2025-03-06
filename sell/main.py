@@ -84,7 +84,7 @@ def process_open_positions():
         reason = ""
 
         # Condition 1: Price is at least 2.5% higher than buy_price.
-        if current_price >= buy_price * 1.025:
+        if current_price >= buy_price * 1.015:
             sell = True
             reason = "Price increased by at least 2.5%."
             logging.info(f"Token {token_address} - Price increased by at least 2.5%.")
@@ -96,7 +96,7 @@ def process_open_positions():
             logging.info(f"Token {token_address} - Position open for more than 5 minutes.")
 
         # Condition 3: Price dropped more than 50% from purchase price.
-        elif current_price <= buy_price * 0.5:
+        elif current_price <= buy_price * 0.98:
             sell = True
             reason = "Price dropped more than 50% from purchase price."
             logging.info(f"Token {token_address} - Price dropped more than 50% from purchase price.")
